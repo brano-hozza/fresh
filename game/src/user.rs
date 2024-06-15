@@ -15,7 +15,12 @@ impl Plugin for UserPlugin {
             .add_systems(Startup, systems::add_user_to_world)
             .add_systems(
                 Update,
-                (systems::print_position_system, systems::update_positions),
+                (
+                    systems::change_direction,
+                    systems::change_state,
+                    systems::animate_player,
+                    systems::update_positions,
+                ),
             );
     }
 }
